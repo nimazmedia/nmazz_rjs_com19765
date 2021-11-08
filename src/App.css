@@ -7,6 +7,22 @@
   pointer-events: none;
 }
 
+.cardItem {
+  color: #141417;
+  padding: 10px;
+}
+
+.itemList {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
+  margin: 0 100px;
+}
+
+.botDetalle {
+  margin-top: 5px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
