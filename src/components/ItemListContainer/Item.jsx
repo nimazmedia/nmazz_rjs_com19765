@@ -17,7 +17,6 @@ const Item = ({id, title, photo, precio, stock}) => {
           <Link to={`/detail/${id}`}>
             <Button variant="dark" className="botDetalle">Ver detalles</Button>
           </Link>
-          
       </Card>
     );
 };

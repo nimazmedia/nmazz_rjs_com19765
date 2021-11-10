@@ -11,7 +11,7 @@ const NavBar=()=>{
     return(
         <Navbar bg="light" expand="lg" className="naveg">
             <Container fluid>
-                <Link to="/" ><Navbar.Brand href="#"><img src={LogoWeb} alt='logo web' className="logoWeb" /></Navbar.Brand></Link>
+                <Link to="/" ><img src={LogoWeb} alt='logo web' className="logoWeb" /></Link>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                 <Nav
@@ -21,8 +21,8 @@ const NavBar=()=>{
                 >
                     <Link to="/" className="menuNavBar" >Home</Link>
                     <Link to="/catalogo" className="menuNavBar" >Catalogo</Link>
-                    <Link to="/productos/chombas" className="menuNavBar" >Chombas</Link>
-                    <Link to="/productos/gorras" className="menuNavBar" >Gorras</Link>
+                    <Link to="/catalogo/Chomba" className="menuNavBar" >Chombas</Link>
+                    <Link to="/catalogo/Gorra" className="menuNavBar" >Gorras</Link>
                 </Nav>
                     <Link to="/cart" >
                     <CartWidget />

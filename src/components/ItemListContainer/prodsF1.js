@@ -22,7 +22,7 @@ const prodsF1 = [
     {
         id: 3,
         title: "Chomba Alpine",
-        tipo: "Chomba",
+        categoria: "Chomba",
         descrip: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, assumenda odio. Vitae voluptas nesciunt ea mollitia quo porro temporibus adipisci, molestias cum, voluptate, nemo animi officia explicabo maxime dolorum quae!",
         codeName: "chombaALP",
         photo: "store/chomba_alpine.jpg",
