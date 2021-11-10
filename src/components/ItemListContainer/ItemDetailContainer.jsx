@@ -1,51 +1,50 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
-import ItemList from './ItemList';
+import ItemDetail from './ItemDetail';
 import prodsF1 from './prodsF1';
 import Spinner from './Spinner';
 
-const getItems = new Promise((resolve, reject) => {
-
+const getItem = new Promise((res, rej) => {
     const condition = true;
+    
     if (condition) {
         setTimeout(() => {
-            resolve(prodsF1)
+            res(prodsF1)
         }, 2000)
     } else {
-        reject('404 Not found')
+        rej('404 Not found')
     }
-
 })
 
 
-const ItemListContainer = () => {
+const ItemDetailContainer = () => {
     const [item, setItem] = useState([])
     const [loading, setLoading] = useState(true)
 
-    const { id } = useParams();
-
+    const { id } = useParams()
 
     useEffect(() => {
         if (id) {
-            getItems
-                .then(res => setItem(res.filter(prod => prod.categoria === id)))
+            getItem
+                .then(res => setItem(res.find(element => element.id === id)))
+                .catch(err => console.log(err))
                 .finally(() => setLoading(false))
-        } else {
-            getItems
-                .then(res => setItem(res))
-                .finally(() => setLoading(false))
-            
-        }
-    },[id] )
 
+        } else {
+            getItem
+                .then(res => setItem(res))
+                .catch(err => console.log(err))
+                .finally(() => setLoading(false))
+
+        }
+            
+    }, [id])    
+    
     return (
-        <div>
-            <h1>Productos</h1>
-            {loading ? <Spinner /> : <div className="itemList">
-            <ItemList items={item} />
-            </div>}
+        <div>           
+            {loading ? <Spinner /> : <ItemDetail item={item} />}
         </div>
     )
-};
+}
 
-export default ItemListContainer;
+export default ItemDetailContainer;

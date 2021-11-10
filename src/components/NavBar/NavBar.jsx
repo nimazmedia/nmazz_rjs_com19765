@@ -1,3 +1,5 @@
+
+import { Link } from "react-router-dom";
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -9,7 +11,7 @@ const NavBar=()=>{
     return(
         <Navbar bg="light" expand="lg" className="naveg">
             <Container fluid>
-                <Navbar.Brand href="#"><img src={LogoWeb} alt='logo web' className="logoWeb" /></Navbar.Brand>
+                <Link to="/" ><Navbar.Brand href="#"><img src={LogoWeb} alt='logo web' className="logoWeb" /></Navbar.Brand></Link>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                 <Nav
@@ -17,14 +19,14 @@ const NavBar=()=>{
                     style={{ maxHeight: '100px' }}
                     navbarScroll
                 >
-                    <Nav.Link href="#">Home</Nav.Link>
-                    <Nav.Link href="#">Productos</Nav.Link>
-                    <Nav.Link href="#">Envíos</Nav.Link>
-                    <Nav.Link href="#">Acerca de</Nav.Link>
-                    <Nav.Link href="#">Contacto</Nav.Link>
+                    <Link to="/" className="menuNavBar" >Home</Link>
+                    <Link to="/catalogo" className="menuNavBar" >Catalogo</Link>
+                    <Link to="/productos/chombas" className="menuNavBar" >Chombas</Link>
+                    <Link to="/productos/gorras" className="menuNavBar" >Gorras</Link>
                 </Nav>
-                
-                <CartWidget />
+                    <Link to="/cart" >
+                    <CartWidget />
+                    </Link>
                 </Navbar.Collapse>
             </Container>
             </Navbar>
