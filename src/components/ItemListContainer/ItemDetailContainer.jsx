@@ -28,7 +28,7 @@ const ItemDetailContainer = () => {
     useEffect(() => {
         if (id) {
             getItems
-                .then(res => setItem(res.filter(prod => prod.id == id)))
+                .then(res => setItem(res.find(prod => prod.id == id)))
                 .finally(() => setLoading(false))
         } else {
             getItems

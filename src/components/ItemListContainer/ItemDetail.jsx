@@ -13,8 +13,8 @@ const ItemDetail = ({ items }) => {
                 <Card.Header>
                     <Card.Title>{title}</Card.Title>
                 </Card.Header>
-                <Card.Text>{descrip}</Card.Text>
-                    <Card.Img variant="top" src={photo} /> 
+                    <Card.Img variant="top" src={photo} className="cardItemIMG"/> 
+                    <Card.Text>{descrip}</Card.Text>
                     <Card.Subtitle className="precioItem">Precio: ${precio}</Card.Subtitle>
                 <ItemCount inicial={0} stock={stock}  />
             </Card>

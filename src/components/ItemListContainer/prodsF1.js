@@ -5,7 +5,7 @@ const prodsF1 = [
         categoria: "Chomba",
         descrip: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, assumenda odio. Vitae voluptas nesciunt ea mollitia quo porro temporibus adipisci, molestias cum, voluptate, nemo animi officia explicabo maxime dolorum quae!",
         codeName: "chombaALFAR",
-        photo: "store/chomba_alfaromeo.jpg",
+        photo: "https://i.imgur.com/MBlUSDA.jpg",
         precio: 5000,
         stock: 15
     },
@@ -15,7 +15,7 @@ const prodsF1 = [
         categoria: "Chomba",
         descrip: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, assumenda odio. Vitae voluptas nesciunt ea mollitia quo porro temporibus adipisci, molestias cum, voluptate, nemo animi officia explicabo maxime dolorum quae!",
         codeName: "chombaALPHA",
-        photo: "store/chomba_alphatauri.jpg",
+        photo: "https://i.imgur.com/qmRuA0Z.jpg",
         precio: 5000,
         stock: 12
     },
@@ -25,7 +25,7 @@ const prodsF1 = [
         categoria: "Chomba",
         descrip: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, assumenda odio. Vitae voluptas nesciunt ea mollitia quo porro temporibus adipisci, molestias cum, voluptate, nemo animi officia explicabo maxime dolorum quae!",
         codeName: "chombaALP",
-        photo: "store/chomba_alpine.jpg",
+        photo: "https://i.imgur.com/Fngopr2.jpg",
         precio: 5000,
         stock: 8
     },
@@ -35,7 +35,7 @@ const prodsF1 = [
         categoria: "Chomba",
         descrip: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, assumenda odio. Vitae voluptas nesciunt ea mollitia quo porro temporibus adipisci, molestias cum, voluptate, nemo animi officia explicabo maxime dolorum quae!",
         codeName: "chombaASTON",
-        photo: "store/chomba_astonmartin.jpg",
+        photo: "https://i.imgur.com/URySgSA.jpg",
         precio: 5000,
         stock: 10
     },
@@ -45,7 +45,7 @@ const prodsF1 = [
         categoria: "Chomba",
         descrip: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, assumenda odio. Vitae voluptas nesciunt ea mollitia quo porro temporibus adipisci, molestias cum, voluptate, nemo animi officia explicabo maxime dolorum quae!",
         codeName: "chombaFERR",
-        photo: "store/chomba_ferrari.jpg",
+        photo: "https://i.imgur.com/rXVmQoG.jpg",
         precio: 5000,
         stock: 15
     },
@@ -55,7 +55,7 @@ const prodsF1 = [
         categoria: "Chomba",
         descrip: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, assumenda odio. Vitae voluptas nesciunt ea mollitia quo porro temporibus adipisci, molestias cum, voluptate, nemo animi officia explicabo maxime dolorum quae!",
         codeName: "chombaHAAS",
-        photo: "store/chomba_haas.jpg",
+        photo: "https://i.imgur.com/OcmKUva.jpg",
         precio: 5000,
         stock: 18
     },
@@ -65,7 +65,7 @@ const prodsF1 = [
         categoria: "Chomba",
         descrip: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, assumenda odio. Vitae voluptas nesciunt ea mollitia quo porro temporibus adipisci, molestias cum, voluptate, nemo animi officia explicabo maxime dolorum quae!",
         codeName: "chombaMCL",
-        photo: "store/chomba_mclaren.jpg",
+        photo: "https://i.imgur.com/OVdUCOg.jpg",
         precio: 5000,
         stock: 8
     },
@@ -75,7 +75,7 @@ const prodsF1 = [
         categoria: "Chomba",
         descrip: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, assumenda odio. Vitae voluptas nesciunt ea mollitia quo porro temporibus adipisci, molestias cum, voluptate, nemo animi officia explicabo maxime dolorum quae!",
         codeName: "chombaMERC",
-        photo: "store/chomba_mercedes.jpg",
+        photo: "https://i.imgur.com/yIO458o.jpg",
         precio: 5000,
         stock: 5
     },
@@ -85,7 +85,7 @@ const prodsF1 = [
         categoria: "Chomba",
         descrip: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, assumenda odio. Vitae voluptas nesciunt ea mollitia quo porro temporibus adipisci, molestias cum, voluptate, nemo animi officia explicabo maxime dolorum quae!",
         codeName: "chombaRBULL",
-        photo: "store/chomba_redbull.jpg",
+        photo: "https://i.imgur.com/tUwK6ym.jpg",
         precio: 5000,
         stock: 6
     },
@@ -95,7 +95,7 @@ const prodsF1 = [
         categoria: "Chomba",
         descrip: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, assumenda odio. Vitae voluptas nesciunt ea mollitia quo porro temporibus adipisci, molestias cum, voluptate, nemo animi officia explicabo maxime dolorum quae!",
         codeName: "chombaWILL",
-        photo: "store/chomba_williams.jpg",
+        photo: "https://i.imgur.com/S6ikuxo.jpg",
         precio: 5000,
         stock: 12
     },
@@ -105,7 +105,7 @@ const prodsF1 = [
         categoria: "Gorra",
         descrip: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, assumenda odio. Vitae voluptas nesciunt ea mollitia quo porro temporibus adipisci, molestias cum, voluptate, nemo animi officia explicabo maxime dolorum quae!",
         codeName: "gorraALFAR",
-        photo: "store/gorra_alfaromeo.jpg",
+        photo: "https://i.imgur.com/zIa5XZI.jpg",
         precio: 2000,
         stock: 14
     },
@@ -115,7 +115,7 @@ const prodsF1 = [
         categoria: "Gorra",
         descrip: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, assumenda odio. Vitae voluptas nesciunt ea mollitia quo porro temporibus adipisci, molestias cum, voluptate, nemo animi officia explicabo maxime dolorum quae!",
         codeName: "gorraALPHA",
-        photo: "store/gorra_alphatauri.jpg",
+        photo: "https://i.imgur.com/dM5oRMm.jpg",
         precio: 2000,
         stock: 15
     },
@@ -125,7 +125,7 @@ const prodsF1 = [
         categoria: "Gorra",
         descrip: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, assumenda odio. Vitae voluptas nesciunt ea mollitia quo porro temporibus adipisci, molestias cum, voluptate, nemo animi officia explicabo maxime dolorum quae!",
         codeName: "gorraALP",
-        photo: "store/gorra_alpine.jpg",
+        photo: "https://i.imgur.com/Vlcx9xu.jpg",
         precio: 2000,
         stock: 10
     },
@@ -135,7 +135,7 @@ const prodsF1 = [
         categoria: "Gorra",
         descrip: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, assumenda odio. Vitae voluptas nesciunt ea mollitia quo porro temporibus adipisci, molestias cum, voluptate, nemo animi officia explicabo maxime dolorum quae!",
         codeName: "gorraASTON",
-        photo: "store/gorra_astonmartin.jpg",
+        photo: "https://i.imgur.com/v8d6frA.jpg",
         precio: 2000,
         stock: 12
     },
@@ -145,7 +145,7 @@ const prodsF1 = [
         categoria: "Gorra",
         descrip: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, assumenda odio. Vitae voluptas nesciunt ea mollitia quo porro temporibus adipisci, molestias cum, voluptate, nemo animi officia explicabo maxime dolorum quae!",
         codeName: "gorraFERR",
-        photo: "store/gorra_ferrari.jpg",
+        photo: "https://i.imgur.com/LtxUETk.jpg",
         precio: 2000,
         stock: 7
     },
@@ -155,7 +155,7 @@ const prodsF1 = [
         categoria: "Gorra",
         descrip: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, assumenda odio. Vitae voluptas nesciunt ea mollitia quo porro temporibus adipisci, molestias cum, voluptate, nemo animi officia explicabo maxime dolorum quae!",
         codeName: "gorraHAAS",
-        photo: "store/gorra_haas.jpg",
+        photo: "https://i.imgur.com/QK41fOn.jpg",
         precio: 2000,
         stock: 15
     },
@@ -165,7 +165,7 @@ const prodsF1 = [
         categoria: "Gorra",
         descrip: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, assumenda odio. Vitae voluptas nesciunt ea mollitia quo porro temporibus adipisci, molestias cum, voluptate, nemo animi officia explicabo maxime dolorum quae!",
         codeName: "gorraMCL",
-        photo: "store/gorra_mclaren.jpg",
+        photo: "https://i.imgur.com/ceUfdVl.jpg",
         precio: 2000,
         stock: 8
     },
@@ -175,7 +175,7 @@ const prodsF1 = [
         categoria: "Gorra",
         descrip: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, assumenda odio. Vitae voluptas nesciunt ea mollitia quo porro temporibus adipisci, molestias cum, voluptate, nemo animi officia explicabo maxime dolorum quae!",
         codeName: "gorraMERC",
-        photo: "store/gorra_mercedes.jpg",
+        photo: "https://i.imgur.com/bBDT1tO.jpg",
         precio: 2000,
         stock: 6
     },
@@ -185,7 +185,7 @@ const prodsF1 = [
         categoria: "Gorra",
         descrip: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, assumenda odio. Vitae voluptas nesciunt ea mollitia quo porro temporibus adipisci, molestias cum, voluptate, nemo animi officia explicabo maxime dolorum quae!",
         codeName: "gorraRBULL",
-        photo: "store/gorra_redbull.jpg",
+        photo: "https://i.imgur.com/LjhgYBo.jpg",
         precio: 2000,
         stock: 8
     },
@@ -195,7 +195,7 @@ const prodsF1 = [
         categoria: "Gorra",
         descrip: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, assumenda odio. Vitae voluptas nesciunt ea mollitia quo porro temporibus adipisci, molestias cum, voluptate, nemo animi officia explicabo maxime dolorum quae!",
         codeName: "gorraWILL",
-        photo: "store/gorra_williams.jpg",
+        photo: "https://i.imgur.com/p886SZA.jpg",
         precio: 2000,
         stock: 15
     }
