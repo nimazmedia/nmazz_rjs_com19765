@@ -40,7 +40,7 @@ const ItemListContainer = () => {
 
     return (
         <div>
-            <h1>Productos</h1>
+            <h1 className="titulos">Productos</h1>
             {loading ? <Spinner /> : <div className="itemList">
             <ItemList items={item} />
             </div>}

@@ -1,26 +1,23 @@
 import React, {useState} from 'react'
 import './ItemCount.css';
 
-const ItemCount = ({stock, inicial}) => {
+const ItemCount = ({stock, inicial, onAdd}) => {
     const [count, setCount] = useState(inicial)
 
     const sumItem = () => {
-        count < stock ? setCount(count + 1) : alert(`Superaste el limite de productos`)
+        if (count < stock) {setCount(count + 1)}
     }
     const resItem = () => {
-        count > inicial ? setCount(count - 1) : console.log(`Sin Stock`)
-    }
-    const onAdd = () => {
-        alert(`Agregaste ${count} productos`)
+        if (count >= inicial) {setCount(count - 1)}
     }
 
     return (
         <div>
             <label>Cantidad: {count} | Stock: {stock}</label> <br />
-            <button className="btn btn-dark" onClick={sumItem}>+</button>
-            <button className="btn btn-secondary" onClick={resItem}>-</button>
+            <button className="btn btn-dark" onClick={sumItem} disabled={count === stock} >+</button>
+            <button className="btn btn-secondary" onClick={resItem} disabled={count === 0}>-</button>
 
-            <button className="btn btn-dark" onClick={onAdd}>Agregar</button>
+            <button className="btn btn-danger" onClick={() => onAdd(count)} disabled={count === 0}>Agregar</button>
         </div>
     );
 }

@@ -1,12 +1,24 @@
-import React from "react";
-import {Card} from 'react-bootstrap';
+import React, {useState} from "react";
+import {Card, Button} from 'react-bootstrap';
+import {Link} from "react-router-dom";
+import {useCartContext} from '../../context/CartContext'
 import ItemCount from '../ItemCount/ItemCount'
 
 
 const ItemDetail = ({ items }) => {
     const { id, title, descrip, photo, precio, stock } = items;
+    const [click, setClick] = useState(false)
+    const [count, setCount] = useState(1)
+    const {addCart} = useCartContext()
+        
 
-    console.log(items)
+    const onAdd = (count) => {
+        setCount(count)
+        addCart({ ...items, items , cantidad: count })
+        setClick(true)
+    }
+
+
 
     return(
             <Card key={id} border="dark" className="cardItemDetail">
@@ -16,7 +28,10 @@ const ItemDetail = ({ items }) => {
                     <Card.Img variant="top" src={photo} className="cardItemIMG"/> 
                     <Card.Text>{descrip}</Card.Text>
                     <Card.Subtitle className="precioItem">Precio: ${precio}</Card.Subtitle>
-                <ItemCount inicial={0} stock={stock}  />
+
+                    {click === false ? <ItemCount inicial={0} stock={stock} onAdd={onAdd}  /> : 
+                    <><Link to='/'><Button variant="success" className="botDetalle">Volver a Catalogo</Button></Link>
+                    <Link to='/cart'><Button variant="danger" className="botDetalle">Finalizar compra</Button></Link></>}
             </Card>
     );
 };
@@ -24,4 +39,5 @@ const ItemDetail = ({ items }) => {
 export default ItemDetail;
 
 
-    
+
+
