@@ -10,22 +10,21 @@ export const Cart = () => {
         <div>
             {cartList.length === 0 ? <CartEmpty /> :
 
-                cartList.map(item =>
-                        <Container>
-                            <Row className="carritoTitle">
-                                <Col className="carritoText">Articulo</Col>
-                                <Col className="carritoText">Cantidad</Col>
-                                <Col className="carritoText">Precio</Col>
-                                <Col></Col>
-                            </Row>
-                            <Row className="carritoLine">
-                                <Col className="carritoText">{item.title}</Col>
-                                <Col className="carritoText">{item.count}</Col>
-                                <Col className="carritoText">$ {item.precio * item.count}</Col>
-                                <Col><Button variant="dark" className="botDetalle botCart" onClick={() => borrarItem(item.id)}>Eliminar Item</Button></Col>
-                            </Row>
-                        </Container>
-                )
+                <Container>
+                <Row className="carritoTitle">
+                    <Col className="carritoText">Articulo</Col>
+                    <Col className="carritoText">Cantidad</Col>
+                    <Col className="carritoText">Precio</Col>
+                    <Col></Col>
+                </Row>
+                {cartList.map(item =>
+                    <Row className="carritoLine" key={item.id} >
+                        <Col className="carritoText">{item.title}</Col>
+                        <Col className="carritoText">{item.count}</Col>
+                        <Col className="carritoText">$ {item.precio * item.count}</Col>
+                        <Col><Button variant="dark" className="botDetalle botCart" onClick={() => borrarItem(item.id)}>Eliminar Item</Button></Col>
+                    </Row>)}
+                </Container>
             }
             {
                 cartList.length === 0 ? null :
