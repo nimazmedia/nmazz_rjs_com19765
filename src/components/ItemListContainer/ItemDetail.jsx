@@ -13,12 +13,13 @@ const ItemDetail = ({ items }) => {
     
 
     const onAdd = (count) => {
-        addCart({ ...items, items, count })
+        addCart(items, count)
         setCount(count)
         setClick(true)
     }
 
-
+    console.log(items)
+    console.log(count)
 
     return(
             <Card key={id} border="dark" className="cardItemDetail">
