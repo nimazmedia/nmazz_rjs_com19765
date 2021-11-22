@@ -10,11 +10,11 @@ const ItemDetail = ({ items }) => {
     const [click, setClick] = useState(false)
     const [count, setCount] = useState(1)
     const {addCart} = useCartContext()
-        
+    
 
     const onAdd = (count) => {
+        addCart({ ...items, items, count })
         setCount(count)
-        addCart({ ...items, items , cantidad: count })
         setClick(true)
     }
 

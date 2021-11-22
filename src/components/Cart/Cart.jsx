@@ -1,25 +1,51 @@
+import { Link } from 'react-router-dom'
 import { useCartContext } from '../../context/CartContext'
-import {Card, Button} from 'react-bootstrap';
+import { Button, Container, Row, Col } from 'react-bootstrap';
+import { CartEmpty } from './CartEmpty'
 
 export const Cart = () => {
-    const { cartList, vaciarCart } = useCartContext()
+    const { cartList, vaciarCart, borrarItem, cantItem, totalPrice } = useCartContext()
 
     return (
         <div>
-            <h1 className="titulos">Carrito de compra</h1>
+            {cartList.length === 0 ? <CartEmpty /> :
 
-            {cartList.map(item =>
-                        <Card className="text-center cardCarrito" border="dark">
-                            <Card.Header>
-                                <Card.Title className="carritoTitle">{item.title}</Card.Title>
-                            </Card.Header>
-                            <Card.Body>
-                                <Card.Text className="carritoText">Cantidad: {item.cantidad} | Precio: ${item.precio}</Card.Text>
-                            </Card.Body>
-                            <Card.Footer><Button variant="dark" className="botDetalle">Eliminar Item</Button></Card.Footer>
-                        </Card>
-            )}
-            <Button variant="danger" className="botDetalle" onClick={vaciarCart}>Vaciar Carrito</Button>
-        </div>
+                cartList.map(item =>
+                        <Container>
+                            <Row className="carritoTitle">
+                                <Col className="carritoText">Articulo</Col>
+                                <Col className="carritoText">Cantidad</Col>
+                                <Col className="carritoText">Precio</Col>
+                                <Col></Col>
+                            </Row>
+                            <Row className="carritoLine">
+                                <Col className="carritoText">{item.title}</Col>
+                                <Col className="carritoText">{item.count}</Col>
+                                <Col className="carritoText">$ {item.precio * item.count}</Col>
+                                <Col><Button variant="dark" className="botDetalle botCart" onClick={() => borrarItem(item.id)}>Eliminar Item</Button></Col>
+                            </Row>
+                        </Container>
+                )
+            }
+            {
+                cartList.length === 0 ? null :
+                    <>
+                        <Container>
+                            <Row>
+                                <Col></Col>
+                                <Col className="carritoText">Cantidad de productos: {cantItem()}</Col>
+                                <Col className="carritoText">Total: $ {totalPrice()}</Col>
+                                <Col><Button variant="danger" className="botDetalle" onClick={vaciarCart}>Vaciar Carrito</Button></Col>
+                            </Row>
+                        </Container>
+                        <Link to='/' className="card-link"><Button variant="success" className="botDetalle">Seguir Comprando</Button></Link>
+                        <Link to='/checkOut' className="card-link"><Button variant="danger" className="botDetalle">Finalizar Compra</Button></Link>
+                    </>
+            }
+</div>
     )
 }
+
+
+
+

@@ -12,20 +12,30 @@
   font-weight: bolder;
 }
 
-.cardCarrito {
-  width: 45rem;
-  margin: auto auto;
-}
-
 .carritoTitle {
   font-size: 30px;
   font-weight: bolder;
   margin-bottom: 0;
+  background-color: #141417;
+  color: #e7e7e7;
 }
 
 .carritoText {
   font-size: 20px;
   font-weight: bold;
+}
+
+.carritoLine {
+  border: solid 1px #141417;
+}
+
+.cartWidg {
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+.botCart {
+  margin: 5px;
 }
 
 .cardItem {

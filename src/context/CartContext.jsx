@@ -1,4 +1,4 @@
-import { createContext, useState, useContext} from 'react'
+import {createContext, useState, useContext} from 'react'
 
 const CartContext = createContext([])
 
@@ -8,14 +8,38 @@ export const useCartContext = () => {
 
 const CartContextProvider = ({ children }) => {
     const [cartList, setCartList] = useState([])
+    
+    const addCart = (item, cantidad) => {
+        let inCartList = cartList.find((cartItem) => cartItem.id === item.id);
 
-    const addCart = (item) => {
-        setCartList([...cartList, item])
+        if (inCartList) {
+            inCartList.count += cantidad
+            setCartList([...cartList])
+        } else {
+            setCartList([...cartList, { ...item, cantidad }])
+        }
+
     }
+
+    const borrarItem = (id) => {
+        setCartList(cartList.filter((i) => i.id !== id))
+    }
+
+    const cantItem = () => {
+        return cartList.reduce((acum, item) => acum = acum + item.count, 0)
+    }
+    
+    const sumaPrecioItems = () => {
+        return cartList.reduce((acum, item) => acum = acum + item.precio, 0)
+    }   
+
+    const totalPrice = () => {
+        return cartList.reduce((acum, item) => (acum += item.precio * item.count), 0)
+    }
+
     const vaciarCart = () => {
         setCartList([])
     }
-    
 
 
     return (
@@ -23,7 +47,11 @@ const CartContextProvider = ({ children }) => {
             {
                 cartList,
                 addCart,
-                vaciarCart
+                vaciarCart,
+                borrarItem,
+                cantItem,
+                sumaPrecioItems,
+                totalPrice
             }}>
             
             {children}
