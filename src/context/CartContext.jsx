@@ -7,20 +7,19 @@ export const useCartContext = () =>  useContext(CartContext);
 const CartContextProvider = ({ children }) => {
     const [cartList, setCartList] = useState([])
     
-    const addCart = (item, qnt) => {
+    const addCart = (item, count) => {
         if (isInCart(item)) {
             let newCart = cartList;
 
             newCart.forEach((cartItem) => {
                 if (cartItem.id === item.id) {
-                cartItem.qnt += qnt;
-                    }
-                });
-            setCartList(newCart);
-            } else {
-                setCartList([...cartList, { ...item, qnt }]);
-            }
-        };
+                    cartItem.count += count;
+                }})
+            setCartList(newCart)
+        } else {
+            setCartList([...cartList, { ...item, count }])
+        }
+    };
 
     const isInCart = (item) => {
         return cartList.some((cartItem) => cartItem.id === item.id);
@@ -31,12 +30,8 @@ const CartContextProvider = ({ children }) => {
     }
 
     const cantItem = () => {
-        return cartList.reduce((acum, item) => acum = acum + item.count, 0)
+        return cartList.reduce((acum, item) => (acum = acum + item.count), 0)
     }
-    
-    const sumaPrecioItems = () => {
-        return cartList.reduce((acum, item) => acum = acum + item.precio, 0)
-    }   
 
     const precioTotal = () => {
         return cartList.reduce((acum, item) => (acum += item.precio * item.count), 0)
@@ -48,7 +43,7 @@ const CartContextProvider = ({ children }) => {
 
     return (
         <CartContext.Provider value={
-            { cartList, addCart, vaciarCart, borrarItem, cantItem, sumaPrecioItems, precioTotal }}>
+            { cartList, addCart, vaciarCart, borrarItem, cantItem, precioTotal }}>
             {children}
         </CartContext.Provider>
     )
