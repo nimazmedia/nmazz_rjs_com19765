@@ -9,7 +9,7 @@ const CartWidget = () => {
     return (
         <div>
             <Button variant="danger" className="cartWidg">
-            Carrito <Badge bg="dark"><span>{cantItem() !== 0 && cantItem()}</span></Badge>
+            Carrito <Badge bg="dark"><span>{cantItem()}</span></Badge>
             </Button>
         </div>
     )
