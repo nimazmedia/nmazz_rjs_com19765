@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
+import { getFirestore } from '../../service/getFirestore';
 import ItemDetail from './ItemDetail';
 import prodsF1 from './prodsF1';
 import Spinner from './Spinner';
@@ -26,16 +27,12 @@ const ItemDetailContainer = () => {
 
 
     useEffect(() => {
-        if (id) {
-            getItems
-                .then(res => setItem(res.find(prod => prod.id == id)))
-                .finally(() => setLoading(false))
-        } else {
-            getItems
-                .then(res => setItem(res))
-                .finally(() => setLoading(false))
-            
-        }
+        const bdQuery = getFirestore()
+
+        bdQuery.collection('items').doc(id).get() 
+            .then(resp => setItem({ id: resp.id, ...resp.data() }))
+            .catch(err => console.log(err))
+            .finally(() => setLoading(false))
     },[id] ) 
     
     return (

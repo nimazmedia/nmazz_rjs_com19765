@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
+import { getFirestore } from '../../service/getFirestore';
 import ItemList from './ItemList';
 import prodsF1 from './prodsF1';
 import Spinner from './Spinner';
@@ -26,15 +27,18 @@ const ItemListContainer = () => {
 
 
     useEffect(() => {
-        if (id) {
-            getItems
-                .then(res => setItem(res.filter(prod => prod.categoria === id)))
+        const dbQuery = getFirestore()
+
+        if (id ===  undefined) {
+            dbQuery.collection('items').get()
+                .then(data => setItem(data.docs.map(i => ({ id: i.id, ...i.data() }))))
+                .catch(err => console.log(err))
                 .finally(() => setLoading(false))
         } else {
-            getItems
-                .then(res => setItem(res))
+            dbQuery.collection('items').where('id', '==',  id ).get()
+                .then(data => setItem(data.docs.map(i => ({ id: i.id, ...i.data() }))))
+                .catch(err => console.log(err))
                 .finally(() => setLoading(false))
-            
         }
     },[id] )
 
