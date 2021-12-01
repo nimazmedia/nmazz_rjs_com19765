@@ -1,27 +1,27 @@
 import { useState } from 'react'
+import firebase from 'firebase'
 import { Link } from 'react-router-dom'
-import { useCartContext } from '../../context/CartContext'
 import { Button, Container, Row, Col, Form } from 'react-bootstrap'
+
 import { CartEmpty } from './CartEmpty'
 import FinalCompra from '../FinalCompra/FinalCompra'
-import firebase from 'firebase'
+import { useCartContext } from '../../context/CartContext'
 import { getFirestore } from '../../service/getFirestore'
 
 
 export const Cart = () => {
     const [orderId, setOrderId] = useState(null)
     const [mostrarModal, setmostrarModal] = useState(false)
-    const { cartList, vaciarCart, borrarItem, cantItem, precioTotal } = useCartContext()
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [tel, setTel] = useState('')
 
+    const { cartList, vaciarCart, borrarItem, precioTotal } = useCartContext()
 
     const generarOrden = (e) => {
         e.preventDefault();
 
         const order = {}
-
         order.buyer = { name, email, tel } 
         order.total = precioTotal()
         order.date = firebase.firestore.Timestamp.fromDate(new Date())
@@ -36,21 +36,16 @@ export const Cart = () => {
         const orders = dbQ.collection('orders')
 
         orders.add(order)
-
-            .then((res) => {
-                setOrderId(res.id)})
+            .then((res) => { setOrderId(res.id) })
             .catch(err => console.log(err))
 
         const itemsToUpdate = dbQ.collection('items').where(firebase.firestore.FieldPath.documentId(), 'in', cartList.map(i => i.id))
-
         const batch = dbQ.batch();
 
         itemsToUpdate.get()
             .then(collection => {
                 collection.docs.forEach(docSnapshot => {
-                    batch.update(docSnapshot.ref, {
-                        stock: docSnapshot.data().stock - cartList.find(item => item.id === docSnapshot.id).cantidad
-                    })
+                    batch.update(docSnapshot.ref, { stock: docSnapshot.data().stock - cartList.find(item => item.id === docSnapshot.id).cantidad })
                 })
                 batch.commit().then(res => {console.log(`Stock actualizado`)})
             })
