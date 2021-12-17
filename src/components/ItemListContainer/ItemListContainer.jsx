@@ -1,16 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
+
 import { getFirestore } from '../../service/getFirestore';
+import Banner from '../MainBanner/Banner';
 import ItemList from './ItemList';
 import Spinner from './Spinner';
-
 
 const ItemListContainer = () => {
     const [item, setItem] = useState([])
     const [loading, setLoading] = useState(true)
 
     const { id } = useParams();
-
 
     useEffect(() => {
         const dbQuery = getFirestore()
@@ -30,7 +30,8 @@ const ItemListContainer = () => {
 
     return (
         <div>
-            <h1 className="titulos">Productos</h1>
+            <Banner /> 
+            <h1 className="titulos">Catálogo</h1>
             {loading ? <Spinner /> : <div className="itemList">
             <ItemList items={item} />
             </div>}

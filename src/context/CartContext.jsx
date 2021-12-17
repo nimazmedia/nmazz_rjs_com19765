@@ -12,9 +12,7 @@ const CartContextProvider = ({ children }) => {
             let newCart = cartList;
 
             newCart.forEach((cartItem) => {
-                if (cartItem.id === item.id) {
-                    cartItem.count += count;
-                }})
+                if (cartItem.id === item.id) { cartItem.count += count; }})
             setCartList(newCart)
         } else {
             setCartList([...cartList, { ...item, count }])
@@ -30,7 +28,7 @@ const CartContextProvider = ({ children }) => {
     }
 
     const cantItem = () => {
-        return cartList.reduce((acum, item) => (acum = acum + item.count), 0)
+        return cartList.reduce((acum, item) => acum = acum + item.count, 0)
     }
 
     const precioTotal = () => {

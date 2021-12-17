@@ -1,16 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
+
 import { getFirestore } from '../../service/getFirestore';
 import ItemDetail from './ItemDetail';
 import Spinner from './Spinner';
 
-
 const ItemDetailContainer = () => {
     const [item, setItem] = useState({})
     const [loading, setLoading] = useState(true)
-
     const { id } = useParams();
-
 
     useEffect(() => {
         const bdQuery = getFirestore()

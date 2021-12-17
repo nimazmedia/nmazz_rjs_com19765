@@ -1,7 +1,7 @@
 import React from 'react'
-import { useCartContext } from "../../context/CartContext"
 import {Button, Badge} from 'react-bootstrap';
 
+import { useCartContext } from "../../context/CartContext"
 
 const CartWidget = () => {
     const { cantItem } = useCartContext()

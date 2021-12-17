@@ -1,23 +1,20 @@
-import React, {useState} from "react";
-import {Card, Button} from 'react-bootstrap';
-import {Link} from "react-router-dom";
-import {useCartContext} from '../../context/CartContext'
-import ItemCount from '../ItemCount/ItemCount'
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { Card, Button } from 'react-bootstrap';
 
+import { useCartContext } from '../../context/CartContext'
+import ItemCount from '../ItemCount/ItemCount'
 
 const ItemDetail = ({ items }) => {
     const [click, setClick] = useState(false)
     const [count, setCount] = useState(1)
     const {addCart} = useCartContext()
     
-
     const onAdd = (count) => {
         setClick(true)
         setCount(count)
         addCart(items, count)
     }
-
-    console.log(count)
 
     return(
             <Card key={items.id} border="dark" className="cardItemDetail">
@@ -32,10 +29,8 @@ const ItemDetail = ({ items }) => {
                     <><Link to='/'><Button variant="success" className="botDetalle">Volver a Catalogo</Button></Link>
                     <Link to='/cart'><Button variant="danger" className="botDetalle">Finalizar compra</Button></Link></>}
             </Card>
-    );
-
-    
-};
+    )
+}
 
 export default ItemDetail;
 
