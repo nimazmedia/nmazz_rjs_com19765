@@ -3,13 +3,13 @@
 
 ## F1 Shop
 
-#### Capturas
-![](https://imgur.com/mPWMaka)
-![](https://imgur.com/6d7R1WG)
-![](https://imgur.com/oiN2hGY)
-![](https://imgur.com/MH8ErYm)
+### Capturas
+![](https://i.imgur.com/mPWMaka.jpeg)
+![](https://i.imgur.com/oiN2hGY.jpeg)
+![](https://i.imgur.com/6d7R1WG.jpeg)
+![](https://i.imgur.com/MH8ErYm.jpeg)
 
-#### Objetivo:
+### Objetivo:
 El objetivo de la app es ofrecer una tienda online de fácil acceso a la compra de distintos productos oficiales de las escuderías de Formula 1, simplificando el proceso de importación a muchos fanáticos que no tienen la posibilidad de realizar la compra de merchandising a las páginas de dichos equipos por ser todos ellos, de importación desde Europa.
 
 ## Herramientas Utilizadas
