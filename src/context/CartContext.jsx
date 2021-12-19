@@ -8,19 +8,15 @@ const CartContextProvider = ({ children }) => {
     const [cartList, setCartList] = useState([])
     
     const addCart = (item, count) => {
-        if (isInCart(item)) {
-            let newCart = cartList;
+        let inCartList = cartList.find((cartItem) => cartItem.id === item.id)
 
-            newCart.forEach((cartItem) => {
-                if (cartItem.id === item.id) { cartItem.count += count; }})
-            setCartList(newCart)
+        if (inCartList) {
+            inCartList.cantidad += count
+            setCartList([...cartList])
         } else {
             setCartList([...cartList, { ...item, count }])
-        }
-    };
 
-    const isInCart = (item) => {
-        return cartList.some((cartItem) => cartItem.id === item.id);
+        }
     };
 
     const borrarItem = (id) => {

@@ -7,6 +7,7 @@ import ItemCount from '../ItemCount/ItemCount'
 
 const ItemDetail = ({ items }) => {
     const [click, setClick] = useState(false)
+    // eslint-disable-next-line no-unused-vars
     const [count, setCount] = useState(1)
     const {addCart} = useCartContext()
     

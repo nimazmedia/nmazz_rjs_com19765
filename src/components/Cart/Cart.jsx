@@ -11,6 +11,9 @@ import { getFirestore } from '../../service/getFirestore'
 export const Cart = () => {
     const [orderId, setOrderId] = useState(null)
     const [mostrarModal, setmostrarModal] = useState(false)
+    const [nombre, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [tel, setTel] = useState('')
 
     const { cartList, vaciarCart, borrarItem, precioTotal } = useCartContext()
 
@@ -18,6 +21,7 @@ export const Cart = () => {
         e.preventDefault();
 
         const order = {}
+        order.buyer = { nombre, email, tel }
         order.total = precioTotal()
         order.date = firebase.firestore.Timestamp.fromDate(new Date())
         order.items = cartList.map(cartItem => {
@@ -34,13 +38,13 @@ export const Cart = () => {
             .then((res) => { setOrderId(res.id) })
             .catch(err => console.log(err))
 
-        const itemsToUpdate = dbQ.collection('items').where(firebase.firestore.FieldPath.documentId(), 'in', cartList.map(i => i.id))
-        const batch = dbQ.batch();
+            const itemsToUpdate = dbQ.collection('items').where(firebase.firestore.FieldPath.documentId(), 'in', cartList.map(i => i.id))
+            const batch = dbQ.batch();
 
         itemsToUpdate.get()
             .then(collection => {
                 collection.docs.forEach(docSnapshot => {
-                    batch.update(docSnapshot.ref, { stock: docSnapshot.data().stock - cartList.find(item => item.id === docSnapshot.id).cantidad })
+                    batch.update(docSnapshot.ref, { stock: docSnapshot.data().stock - cartList.find(item => item.id === docSnapshot.id).count })
                 })
                 batch.commit().then(res => {console.log(`Stock actualizado`)})
             })
@@ -93,40 +97,21 @@ export const Cart = () => {
                                 <Form onSubmit={generarOrden}>
                                 <Row className="mb-3">
                                     <Form.Group as={Col} controlId="formGridNombre">
-                                        <Form.Label>Nombre</Form.Label><Form.Control />
-                                    </Form.Group>
-
-                                    <Form.Group as={Col} controlId="formGridApellido">
-                                        <Form.Label>Apellido</Form.Label><Form.Control />
+                                        <Form.Label>Nombre y Apellido</Form.Label>
+                                        <Form.Control value={nombre} onChange={(e) => setName(e.target.value)} className="form-control" id="name"/>
                                     </Form.Group>
                                 </Row>
                                 <Row className="mb-3">
                                     <Form.Group as={Col} controlId="formGridEmail">
                                         <Form.Label>Email</Form.Label>
-                                        <Form.Control type="email" />
+                                        <Form.Control type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="form-control" id="email"/>
                                     </Form.Group>
 
                                     <Form.Group as={Col} controlId="formGridState">
-                                    <Form.Label>Telefono</Form.Label><Form.Control />
+                                    <Form.Label>Telefono</Form.Label><Form.Control value={tel} onChange={(e) => setTel(e.target.value)} className="form-control" id="tel"/>
                                     </Form.Group>
                                 </Row>
-                                <Form.Group className="mb-3" controlId="formGroupDirec">
-                                    <Form.Label>Dirección</Form.Label>
-                                    <Form.Control />
-                                </Form.Group>
-                                <Row className="mb-3">
-                                    <Form.Group as={Col} controlId="formGridCity">
-                                        <Form.Label>Ciudad</Form.Label><Form.Control />
-                                    </Form.Group>
 
-                                    <Form.Group as={Col} controlId="formGridState">
-                                    <Form.Label>Provincia</Form.Label><Form.Control />
-                                    </Form.Group>
-
-                                    <Form.Group as={Col} controlId="formGridZip">
-                                    <Form.Label>Codigo Postal</Form.Label><Form.Control />
-                                    </Form.Group>
-                                </Row>
                                 <button className="btn btn-warning" onClick={() => setmostrarModal(true)} >Terminar compra</button>
                                 </Form>
                             </div>
