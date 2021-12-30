@@ -12,9 +12,9 @@ El objetivo de la app es ofrecer una tienda online de fácil acceso a la compra 
 ![](https://i.imgur.com/MH8ErYm.jpeg)
 
 ## Herramientas Utilizadas
-### Visual Studio Code
+### Visual Studio Code ver. 1.63.2
 La App fue realizada integramente en Visual Code Studio
-### React Bootstrap
+### React Bootstrap ver. 2.0.3
 Se utilizó React Bootstrap para algunas funcionalidades y estilos cómo el collapse del NavBar y los estilos de los botones.
 ### React-Router
 Se utilizó React-Router para darle la navegabilidad a la App
