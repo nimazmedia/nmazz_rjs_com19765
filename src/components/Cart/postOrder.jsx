@@ -1,5 +1,5 @@
 import firebase from 'firebase'
-import { getFirestore } from '../service/fireBaseConfig'
+import { getFirestore } from '../../service/getFirestore'
 
 const postOrder = (order, setOrderId, cartList) => {
 
