@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 import { Button, Container, Row, Col, Form } from 'react-bootstrap'
 
 import { CartEmpty } from './CartEmpty'
+import postOrder from './postOrder'
 import FinalCompra from '../FinalCompra/FinalCompra'
 import { useCartContext } from '../../context/CartContext'
-import { getFirestore } from '../../service/getFirestore'
 
 export const Cart = () => {
     const [orderId, setOrderId] = useState(null)
@@ -81,18 +81,18 @@ export const Cart = () => {
                                 <p className="carritoText">El total de su compra es de ${precioTotal()}</p>
                                 <Form onSubmit={generarOrden}>
                                 <Row className="mb-3">
-                                    <Form.Group as={Col} controlId="formGridNombre">
+                                    <Form.Group as={Col}>
                                         <Form.Label>Nombre y Apellido</Form.Label>
                                         <Form.Control value={nombre} onChange={(e) => setName(e.target.value)} className="form-control" id="name"/>
                                     </Form.Group>
                                 </Row>
                                 <Row className="mb-3">
-                                    <Form.Group as={Col} controlId="formGridEmail">
+                                    <Form.Group as={Col}>
                                         <Form.Label>Email</Form.Label>
                                         <Form.Control type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="form-control" id="email"/>
                                     </Form.Group>
 
-                                    <Form.Group as={Col} controlId="formGridState">
+                                    <Form.Group as={Col}>
                                     <Form.Label>Telefono</Form.Label><Form.Control value={tel} onChange={(e) => setTel(e.target.value)} className="form-control" id="tel"/>
                                     </Form.Group>
                                 </Row>
@@ -101,7 +101,7 @@ export const Cart = () => {
                                 </Form>
                             </div>
                         </div>
-                        <FinalCompra show={mostrarModal} onHide={handleHide} orderId={orderId} total={precioTotal()} />
+                        <FinalCompra show={mostrarModal} onHide={handleHide} orderid={orderId} total={precioTotal()} />
                     </>
             }
 </div>
